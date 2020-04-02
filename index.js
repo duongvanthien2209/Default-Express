@@ -12,6 +12,10 @@ app.set('view engine', 'pug');
 // Khởi tạo file public
 app.use(express.static('public'));
 
+// Kết nối với cơ sở dữ liệu mongoDB
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URL,{useNewUrlParser: true});
+
 // Đọc cookies
 const cookieParser = require('cookie-parser');
 app.use(cookieParser(process.env.SESSION_COOKIE));
